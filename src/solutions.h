@@ -22,5 +22,6 @@ struct Game {
 
 std::vector<Game> get_games_from_input();
 int solve_day_2();
+int solve_day_2_2();
 
 #endif

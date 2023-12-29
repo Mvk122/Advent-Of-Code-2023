@@ -1,6 +1,7 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
 
 #include "fetch_input.h"
 #include "solutions.h"
@@ -88,4 +89,25 @@ int solve_day_2() {
         }
     }
     return total;
+}
+
+int solve_day_2_2() {
+    std::vector<Game> games = get_games_from_input();
+
+    int total = 0;
+    for (const auto& game: games) {
+        int minimum_blues = 0;
+        int minimum_reds = 0;
+        int minimum_greens = 0;
+
+        for (const auto& play: game.plays) {
+            minimum_reds = std::max(minimum_reds, play.red);
+            minimum_blues = std::max(minimum_blues, play.blue);
+            minimum_greens = std::max(minimum_greens, play.green);
+        }
+
+        total += minimum_blues * minimum_greens * minimum_reds;
+    }
+    return total;
+
 }
