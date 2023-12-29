@@ -4,6 +4,6 @@
 #include "solutions.h"
 
 int main() {
-    std::cout << first_day() << "\n";
+    std::cout << solve_day_2() << "\n";
     return 0;     
 }
