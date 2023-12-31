@@ -28,4 +28,7 @@ int solve_day_2_2();
 int solve_day_3();
 int solve_day_3_2();
 
+// Fourth day
+int solve_day_4();
+
 #endif

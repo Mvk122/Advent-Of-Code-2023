@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(CURL REQUIRED)
 
-add_executable(advent_of_code src/main.cpp src/fetch_input.cpp src/env.cpp src/day1.cpp src/day2.cpp src/day3.cpp)
+add_executable(advent_of_code src/main.cpp src/fetch_input.cpp src/env.cpp src/day1.cpp src/day2.cpp src/day3.cpp src/day4.cpp)
 
 target_link_libraries(advent_of_code CURL::libcurl)
 
