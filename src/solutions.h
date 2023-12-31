@@ -24,4 +24,7 @@ std::vector<Game> get_games_from_input();
 int solve_day_2();
 int solve_day_2_2();
 
+// Third day
+int solve_day_3();
+
 #endif
