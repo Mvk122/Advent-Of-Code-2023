@@ -26,5 +26,6 @@ int solve_day_2_2();
 
 // Third day
 int solve_day_3();
+int solve_day_3_2();
 
 #endif

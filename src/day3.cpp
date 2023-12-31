@@ -13,13 +13,17 @@ class Symbol {
     public:
         int x;
         int y;
+        int adjacent;
+        int gear_ratio;
         char symbol;
 
-    Symbol(int x, int y, char symbol) : x(x), y(y), symbol(symbol) {}
+    Symbol(int x, int y, char symbol) : x(x), y(y), symbol(symbol), adjacent(0), gear_ratio(1) {}
 
     friend std::ostream& operator<<(std::ostream& os, const Symbol& symbol) {
         os << "Symbol(x: " << symbol.x 
            << ", y: " << symbol.y 
+           << ", gear_ratio: " << symbol.gear_ratio
+           << ", adjacent: " << symbol.adjacent
            << ", symbol: " << symbol.symbol << ")";
         return os;
     }
@@ -120,4 +124,29 @@ int solve_day_3() {
     }
     
     return total;
+}
+
+int solve_day_3_2() {
+    std::string input = fetch_input(3);
+    auto symbols = get_symbols_from_string(input);
+    auto parts = get_parts_from_string(input);
+
+    for (auto& part: parts) {
+        for (auto& symbol: symbols) {
+            if (part.isTouchingSymbol(symbol)) {
+                symbol.adjacent++;
+                symbol.gear_ratio *= part.value;
+            }
+        }
+    }
+
+    int total = 0;
+    for (auto& symbol: symbols) {
+        if (symbol.adjacent == 2 && symbol.symbol == '*') {
+            total += symbol.gear_ratio;
+        }
+    }
+    
+    return total;
+
 }
